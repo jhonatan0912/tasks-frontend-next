@@ -9,8 +9,8 @@ const LoginForm = () => {
   const authProxy = new AuthProxy();
   const router = useRouter();
 
-  const [email, setEmail] = useState<string>('jhonatan@gmail.com');
-  const [password, setPassword] = useState<string>('Jhonatan123@.');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const [busy, setBusy] = useState<boolean>(false);
 
   const handleSubmit = async (e: FormEvent): Promise<void> => {
