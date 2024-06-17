@@ -1,0 +1,6 @@
+.button {
+  min-width: 200px;
+  margin: auto;
+  border: 2px solid #fff;
+  border-radius: 5px;
+}
