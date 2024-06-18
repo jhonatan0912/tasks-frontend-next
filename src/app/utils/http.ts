@@ -1,17 +1,15 @@
-export enum HttpMethods {
-  GET = 'GET',
-  POST = 'POST',
-  PUT = 'PUT',
-  DELETE = 'DELETE',
-}
+"use server";
 
-export const http = async (url: string, method: HttpMethods, body?: Object, cookies?: string) => {
+import { cookies } from 'next/headers';
+import { HttpMethods } from './http-methods';
+
+export const http = async (url: string, method: HttpMethods, body?: Object) => {
   const response = await fetch(url, {
     method: method,
     body: method !== 'GET' && body ? JSON.stringify(body) : undefined,
     headers: {
       'Content-Type': 'application/json',
-      'Cookie': cookies || ''
+      'Cookie': cookies().toString()
     },
     credentials: 'include'
   });

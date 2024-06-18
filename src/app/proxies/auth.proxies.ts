@@ -1,4 +1,5 @@
-import { http, HttpMethods, IResponse } from '../utils';
+import { http, IResponse } from '../utils';
+import { HttpMethods } from '../utils/http-methods';
 
 export class AuthProxy {
 

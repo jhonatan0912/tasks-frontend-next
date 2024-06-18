@@ -5,9 +5,9 @@ type Props = {
   task: TaskDto;
 };
 
-const Tasks = ({ task }: Props) => {
+const Task = ({ task }: Props) => {
   return (
-    <article className='border rounded-md p-2 flex flex-col shadow-lg cursor-pointer hover:scale-95 select-none'>
+    <article className='border rounded-md p-2 flex flex-col shadow-lg cursor-pointer select-none'>
       <span className='text-sm overflow-hidden text-ellipsis break-words text-nowrap'>
         #{task.id}
       </span>
@@ -21,4 +21,4 @@ const Tasks = ({ task }: Props) => {
   );
 };
 
-export default Tasks;
+export default Task;
