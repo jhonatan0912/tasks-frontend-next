@@ -7,11 +7,17 @@ type Props = {
 
 const Tasks = ({ task }: Props) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #000' }}>
-      <span>{task.id}</span>
-      <span>{task.title}</span>
-      <span>{task.description}</span>
-    </div>
+    <article className='border rounded-md p-2 flex flex-col shadow-lg cursor-pointer hover:scale-95 select-none'>
+      <span className='text-sm overflow-hidden text-ellipsis break-words text-nowrap'>
+        #{task.id}
+      </span>
+      <span>
+        Title: {task.title}
+      </span>
+      <p>
+        Description: {task.description}
+      </p>
+    </article>
   );
 };
 
