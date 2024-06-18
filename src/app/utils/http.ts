@@ -18,3 +18,10 @@ export const http = async (url: string, method: HttpMethods, body?: Object, cook
 
   return response.json();
 };
+
+export const getAuthCookies = (parsed: Map<string, { name: string, value: string; }>): string => {
+  const stringify = Array.from(parsed)
+    .map(([key, obj]) => `${key}=${obj.value}`)
+    .join(';');
+  return stringify;
+};
