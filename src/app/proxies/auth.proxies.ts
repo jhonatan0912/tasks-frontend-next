@@ -1,4 +1,5 @@
-import { http, IResponse } from '../utils';
+import { IResponse } from '../utils';
+import { httpClient } from '../utils/http-client';
 import { HttpMethods } from '../utils/http-methods';
 
 export class AuthProxy {
@@ -13,8 +14,15 @@ export class AuthProxy {
       password
     };
 
-    const res = await http(`${this.path}/login`, HttpMethods.POST, body);
+    const res = await httpClient(`${this.path}/login`, HttpMethods.POST, body);
     return new IResponse<AuthResponseDto>().fromJS(res);
+  }
+
+  async logout(): Promise<IResponse<LogoutDto>> {
+    const url = `${this.path}/logout`;
+    
+    const res = await httpClient(url, HttpMethods.POST);
+    return new IResponse<LogoutDto>().fromJS(res);
   }
 }
 
@@ -50,6 +58,20 @@ export class AuthResponseDto {
   fromJS(data: any): AuthResponseDto {
     data = typeof data === 'object' ? data : {} as any;
     const result = new AuthResponseDto(data);
+    return result;
+  }
+}
+
+export class LogoutDto {
+  success!: boolean;
+
+  constructor(data: any) {
+    this.success = data.success;
+  }
+
+  fromJS(data: any): LogoutDto {
+    data = typeof data === 'object' ? data : {} as any;
+    const result = new LogoutDto(data);
     return result;
   }
 }

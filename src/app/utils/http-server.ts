@@ -3,7 +3,7 @@
 import { cookies } from 'next/headers';
 import { HttpMethods } from './http-methods';
 
-export const http = async (url: string, method: HttpMethods, body?: Object) => {
+export const httpServer = async (url: string, method: HttpMethods, body?: Object) => {
   const response = await fetch(url, {
     method: method,
     body: method !== 'GET' && body ? JSON.stringify(body) : undefined,

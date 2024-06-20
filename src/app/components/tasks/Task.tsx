@@ -1,5 +1,5 @@
 import React from 'react';
-import { TaskDto } from '../proxies/tasks.proxies';
+import { TaskDto } from '../../proxies/tasks.proxies';
 
 type Props = {
   task: TaskDto;
@@ -17,6 +17,9 @@ const Task = ({ task }: Props) => {
       <p>
         Description: {task.description}
       </p>
+      <span>
+        Done: {task.done ? '✅' : '❌'}
+      </span>
     </article>
   );
 };

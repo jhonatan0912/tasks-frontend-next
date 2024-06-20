@@ -1,4 +1,4 @@
-import { http, IPaginatedResponse, IResponse } from '../utils';
+import { httpServer, IPaginatedResponse, IResponse } from '../utils';
 import { HttpMethods } from '../utils/http-methods';
 
 export class TasksProxy {
@@ -16,7 +16,7 @@ export class TasksProxy {
     if (limit !== null && limit !== undefined)
       url += `&limit=${limit}`;
 
-    return await http(url, HttpMethods.GET, undefined);
+    return await httpServer(url, HttpMethods.GET, undefined);
   }
 
   async get(id: string): Promise<IResponse<TaskDto>> {
@@ -25,7 +25,7 @@ export class TasksProxy {
     if (id !== null && id !== undefined)
       url += `/${id}`;
 
-    const res = await http(url, HttpMethods.GET);
+    const res = await httpServer(url, HttpMethods.GET);
     return new IResponse<TaskDto>().fromJS(res);
   }
 }
