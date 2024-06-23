@@ -1,7 +1,7 @@
 
 const skeleton = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,];
 
-const TasksSidebarLoader = () => {
+export const TasksSidebarLoader = () => {
 
   return (
     <section className='flex flex-col gap-4 pr-4'>
@@ -13,5 +13,3 @@ const TasksSidebarLoader = () => {
     </section>
   );
 };
-
-export default TasksSidebarLoader;

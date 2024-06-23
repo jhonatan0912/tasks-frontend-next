@@ -1,13 +1,13 @@
 'use client';
 
+import { TaskDto } from '@/app/proxies/tasks.proxies';
 import { useRouter } from 'next/navigation';
-import { TaskDto } from '../../proxies/tasks.proxies';
 
 type Props = {
   task: TaskDto;
 };
 
-const Task = ({ task }: Props) => {
+export const Task = ({ task }: Props) => {
   const router = useRouter();
 
   const handleClick = () => {

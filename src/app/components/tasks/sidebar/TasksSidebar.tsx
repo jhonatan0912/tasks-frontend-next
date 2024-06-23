@@ -1,4 +1,4 @@
-import { TaskDto, TasksProxy } from '../../proxies/tasks.proxies';
+import { TaskDto, TasksProxy } from '@/app/proxies/tasks.proxies';
 
 const getTasks = async () => {
   const tasksProxy = new TasksProxy();
@@ -8,7 +8,7 @@ const getTasks = async () => {
   return res;
 };
 
-const TasksSidebar = async () => {
+export const TasksSidebar = async () => {
   const response = await getTasks();
 
   return (
@@ -23,5 +23,3 @@ const TasksSidebar = async () => {
     </aside>
   );
 };
-
-export default TasksSidebar;

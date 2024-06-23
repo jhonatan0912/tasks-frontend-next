@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
 import Header from '../components/header/Header';
-import Task from '../components/tasks/Task';
-import TasksSidebar from '../components/tasks/TasksSidebar';
-import TasksSidebarLoader from '../components/tasks/TasksSidebarLoader';
+import Task from '../components/tasks/task/Task';
 import { getTasks } from './tasks';
+import { TasksSidebar } from '../components/tasks/sidebar';
+import { TasksSidebarLoader } from '../components/tasks/sidebar-loader';
 
 
 const TasksPage = async () => {
