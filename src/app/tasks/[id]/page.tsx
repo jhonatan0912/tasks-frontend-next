@@ -1,4 +1,5 @@
 import BackButton from '@/app/components/buttons/BackButton';
+import { Switch } from '@/app/components/task/switch';
 import { TasksProxy } from '@/app/proxies/tasks.proxies';
 
 export async function generateMetadata({ params: { id } }: { params: { id: string; }; }) {
@@ -19,10 +20,15 @@ const TaskPage = async ({ params }: any) => {
 
   return (
     <main className='flex flex-col gap-10'>
-      <BackButton />
+      <header className='flex justify-start'>
+        <BackButton />
+      </header>
 
-      <span>{task.title}</span>
-      <span>{task.done ? '✅' : '❌'}</span>
+      <section className='flex flex-col gap-2 p-4'>
+        <span>Task: {task.title}</span>
+        <span>Done? {task.done ? '✅' : '❌'}</span>
+        <span>Change status: <Switch isChecked={task.done} /> </span>
+      </section>
     </main>
 
   );
